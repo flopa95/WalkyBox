@@ -163,6 +163,8 @@ def get_random_coord(x):
     return x
 
 
+#test
+
 def shrink():
     global boxes
     #print (len(boxes))
