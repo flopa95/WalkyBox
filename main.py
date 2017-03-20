@@ -39,12 +39,11 @@ def go_right(event):
             canvas.coords(boxes[i-1],boxcoords[i])
 
         canvas.move(boxes[len(boxes)-1], x, 0)
-        root.update()
+
         check_game_over()
         check_eat()
         spawn_candy()
-
-
+        root.update()
 
 
 
@@ -130,6 +129,8 @@ def check_eat():
         canvas.delete(b)
         candyexist = False
         spawn_candy()
+        shrink()
+
 
 
 
@@ -160,6 +161,20 @@ def get_random_coord(x):
     random.seed
     x = random.randint(20,480)
     return x
+
+
+def shrink():
+    global boxes
+    #print (len(boxes))
+    #popper = int(len(boxes))-1
+    canvas.delete(boxes[len(boxes)-1])
+    boxes.pop(len(boxes)-1)
+
+
+
+
+
+
 
 root.bind("<Right>", go_right)
 root.bind("<Left>", go_left)
