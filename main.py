@@ -169,8 +169,9 @@ def shrink():
     global boxes
     #print (len(boxes))
     #popper = int(len(boxes))-1
-    canvas.delete(boxes[len(boxes)-1])
-    boxes.pop(len(boxes)-1)
+    if len(boxes)>1:
+        canvas.delete(boxes[0])
+        boxes.pop(0)
 
 
 
